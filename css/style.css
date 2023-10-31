@@ -1,0 +1,20 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+}
+
+body{
+    background-color: #371d04;;
+}
+
+header{
+    background-color: black;
+}
+
+nav > a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 20px;
+}
