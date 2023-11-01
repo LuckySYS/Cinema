@@ -53,5 +53,20 @@ h2{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
     border-radius: 10px 10px 10px 10px;
 }
+.containerdois{
+    display: flex;
+    margin-top: 10px;
+}
+.containerdois img{
+    max-width: 300px; 
+    height: auto; 
+    margin-right: 50px;
+}
+h3{
+    font-size: 20px;
+}
+.info{
+    font-size: 18px;
+}
 
   
