@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 // 👉 Seu token (ideal: colocar no .env e usar import.meta.env.VITE_TMDB_TOKEN)
-const API_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDlhNTliOTVmNmIxN2FjMzgyNWNhNjA1MzU4NjBhNCIsIm5iZiI6MTc0NDY2OTc0NC4yMzMsInN1YiI6IjY3ZmQ4YzMwN2MyOWFlNWJjM2Q5NzYwMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.csnTCHrugNocRV526jW68yqYVbjZKF7mgtPC25MKf0I";
+const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
 export default function Banner() {
   const [movie, setMovie] = useState(null);
   const [certification, setCertification] = useState("N/A");
+
 
   useEffect(() => {
     async function fetchMovie() {
@@ -100,18 +100,6 @@ export default function Banner() {
               {certification}
             </span>
             <span>⭐ {movie.vote_average.toFixed(1)}</span>
-          </div>
-        </div>
-
-        <div className="hero-poster">
-          <div className="poster-visual">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              style={{ width: "100%", borderRadius: "12px" }}
-            />
-            <div className="poster-title">{movie.title.toUpperCase()}</div>
-            <div className="poster-tag">EM CARTAZ</div>
           </div>
         </div>
       </div>

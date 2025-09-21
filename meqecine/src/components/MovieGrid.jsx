@@ -14,10 +14,6 @@ export default function MovieCard({ movie, genresMap }) {
           backgroundPosition: "center",
         }}
       >
-        <div className="poster-eyebrow">EM CARTAZ</div>
-        <div className="poster-title">
-          {movie.title.split(" ").slice(0, 3).join(" ")}
-        </div>
       </div>
 
       {/* Info */}
