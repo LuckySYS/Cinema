@@ -1,0 +1,36 @@
+.movie-info-container {
+  display: flex;
+  gap: 2rem;           /* espaço entre poster e texto */
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.movie-poster {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.movie-poster img{
+    border-radius: 10px;
+}
+
+.movie-text {
+  max-width: 600px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.movie-overview {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.movie-meta {
+  font-size: 0.9rem;
+  color: #aaa;
+}

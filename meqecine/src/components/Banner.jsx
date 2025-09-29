@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // ✅ importa Link
 
-// 👉 Seu token (ideal: colocar no .env e usar import.meta.env.VITE_TMDB_TOKEN)
 const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
 export default function Banner() {
   const [movie, setMovie] = useState(null);
   const [certification, setCertification] = useState("N/A");
 
-
   useEffect(() => {
     async function fetchMovie() {
       try {
-        // 👉 pega o primeiro filme em cartaz
         const res = await fetch(
           "https://api.themoviedb.org/3/movie/now_playing?language=pt-BR&region=BR&page=1",
           {
@@ -25,14 +23,12 @@ export default function Banner() {
         if (!res.ok) throw new Error(`Erro HTTP: ${res.status}`);
         const data = await res.json();
 
-        if (!data.results || data.results.length === 0) {
+        if (!data.results || data.results.length === 0)
           throw new Error("Nenhum filme encontrado no Brasil");
-        }
 
         const firstMovie = data.results[0];
         setMovie(firstMovie);
 
-        // 👉 busca classificação indicativa do filme no Brasil
         const certRes = await fetch(
           `https://api.themoviedb.org/3/movie/${firstMovie.id}/release_dates`,
           {
@@ -67,7 +63,6 @@ export default function Banner() {
     );
   }
 
-  // função auxiliar para pegar cor da classificação
   function getRatingClass(cert) {
     if (!cert || cert === "N/A") return "rating rating-na";
     if (cert === "L") return "rating rating-livre";
@@ -92,7 +87,10 @@ export default function Banner() {
           <p className="hero-sub">{movie.overview}</p>
 
           <div className="hero-ctas">
-            <button className="btn btn-ghost">Ver Sessões</button>
+            {/* ✅ Link para a página de detalhes */}
+            <Link to={`/movie/${movie.id}`} className="btn btn-ghost">
+              Detalhes
+            </Link>
           </div>
 
           <div className="hero-meta">
